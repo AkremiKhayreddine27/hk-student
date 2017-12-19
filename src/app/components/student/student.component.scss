@@ -1,0 +1,88 @@
+.student{
+    background-color: white;
+    padding: 15px;
+    border-bottom:1px solid #f5f5f5; 
+    position: relative;
+    .student_title{
+        padding: 25px;
+        color: white;
+        background-color: #716ACA;
+        position: relative;
+        .btn-primary{
+            position: absolute;
+            bottom: -20px;
+            left: 10px;
+        }
+        .btn-danger{
+            position: absolute;
+            top:10px;
+            right: 10px;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            font-size: 24px;
+        }
+    }
+    &_start_date{
+        font-size: 14px;
+    }
+    &_nbr_seances{
+        color: #3cad5e;
+        font-size: 14px;
+    }
+    &_nbr_month{
+        color: #716ACA;
+        font-size: 14px;
+    }
+    &_non_payed{
+        padding: 5px;
+        border-radius: 5px;
+        color: white;
+        background-color: #F4511E;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+    }
+    &_first_letter{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%; 
+        background-color: white;
+        color: #716ACA;
+        margin-right: 10px;
+    }
+    &_time{
+        font-size: 12px;
+    }
+    a{
+        text-decoration: none;
+        color: rgb(51, 51, 51);
+    }
+}
+.student:hover{
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+.btn-primary, .btn-danger, .btn-success{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px 1px rgba(150, 150, 150, .5);
+}
+
+.student_actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.student_body{
+    position: relative;
+}

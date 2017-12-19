@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body{
+    background-color: #F2F3F8;
+    font-family: 'Open Sans', sans-serif;
+    height: 100vh;
+    font-size: 14px;
+}
+.loading{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .loading-spinner{
+        background-color: white;
+        padding: 10px;
+        box-shadow: 2px 2px 2px 2px rgba(100,100,100,.2);
+        display: flex;
+        align-items: center;
+    }
+}
+.saving{
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .loading-spinner{
+        background-color: white;
+        padding: 10px;
+        box-shadow: 2px 2px 2px 2px rgba(100,100,100,.2);
+        display: flex;
+        align-items: center;
+    }
+}
+.error{
+    color: #a82121;
+}
+.fa-spin {
+    color: #716ACA;
+}
+.card{
+    border: none !important;
+    background-color: #F2F3F8;
+    //box-shadow: 0 10px 10px 0 rgba(0, 0, 0, .1);
+    border-radius: 0;
+    .card-header{
+        border-radius: 0;
+        background-color: #2C2E3E !important; 
+        color: white !important;
+        border-top: none !important;
+    }
+}
+.btn{
+    border-radius: 0;
+}
+.btn-danger{
+    background-color: #D50000;
+}
+.btn-success{
+    background-color: #0B8043;
+}
+.btn-primary{
+    background-color: #039BE5;
+}
+
+input[type='text']{
+    border-radius: 0;
+}
+
+.btn-fixed-bottom{
+    z-index: 1000;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,1);    
+}
+
+
+
+
+

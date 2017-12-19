@@ -1,0 +1,35 @@
+.cal-day-headers {
+    display: flex;
+    border: 1px solid #e1e1e1;
+  }
+
+  .cal-day-headers .cal-header {
+    flex: 1;
+    text-align: center;
+    padding: 5px 0;
+  }
+  .cal-day-headers .cal-header:not(:last-child) {
+    border-right: 1px solid #e1e1e1;
+  }
+
+  .cal-day-headers .cal-header:hover,
+  .cal-day-headers .cal-drag-over {
+    // background-color: #ededed;
+  }
+
+  .cal-day-headers span {
+    font-weight: 400;
+    color: rgb(51, 51, 51);
+    font-size: 20px;
+  }
+
+  .cal-day-headers b {
+    color: rgb(51, 51, 51);
+  }
+
+  .cal-header.cal-today {
+    background-color: #F5F5F5;
+    span, b {
+      color: #4285F4
+    }
+  }

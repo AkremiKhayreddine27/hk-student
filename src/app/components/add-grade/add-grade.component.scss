@@ -1,0 +1,26 @@
+.btn-info{
+    z-index: 1000;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+}
+.btn-danger{
+    z-index: 1000;
+    position: fixed;
+    bottom: 10px;
+    right: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+}

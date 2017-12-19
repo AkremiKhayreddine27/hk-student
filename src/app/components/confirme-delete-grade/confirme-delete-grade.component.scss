@@ -1,0 +1,17 @@
+.card{
+    background-color: white !important;
+}
+.card-header{
+    background-color: white !important;
+    color: #757575 !important;
+    font-size: 14px;
+    border-bottom: none;
+}
+.card-body{
+    background-color: white !important;
+    color: #757575 !important;
+    display: flex;
+    .btn{
+        flex: 1;
+    }
+}

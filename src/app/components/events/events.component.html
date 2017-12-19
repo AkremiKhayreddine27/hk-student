@@ -1,0 +1,24 @@
+<ng-template #loading>
+    <div class="loading" *ngIf="showLoading">
+      <div class="loading-spinner">
+          <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> loading
+      </div>
+    </div>
+    <div class="loading error" *ngIf="!showLoading">
+        <i class="fa fa-warning fa-4x"></i>
+        <span>Vérifier votre connexion réseau et/ou réssayer</span> 
+    </div>
+</ng-template>
+<div *ngIf="events; else loading;" class="events">
+  <button routerLink="/events/create" class="btn btn-success">
+      <i class="fa fa-plus"></i>
+  </button>
+  <div class="card">
+    <div *ngIf="day" class="card-header">
+      {{ day }}
+    </div>
+    <div class="card-body">
+      <app-event *ngFor="let event of events" [event]="event"></app-event>
+    </div>
+  </div>
+</div>

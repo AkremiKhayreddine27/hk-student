@@ -1,0 +1,23 @@
+<div class="student">
+      <div class="card">
+          <div [style.background-color]="headColor" class="student_title">
+              {{ student.firstName }} {{ student.lastName }}
+              <button [routerLink]="'/students/'+ student.id + '/edit'" class="btn mr-2 btn-primary"><i class="fa fa-edit"></i></button>
+              <button (click)="confirmDelete()" class="btn btn-danger"><i class="fa fa-trash"></i></button>            
+            </div>
+        <div [routerLink]="'/students/'+student.id" class="card_body student_body">
+          <div *ngIf="months" class="ml-5 mt-3 student_nbr_month">
+            {{ months.length }} mois
+          </div>
+          <div *ngIf="lastMonthSessions" class="ml-5 student_nbr_seances">
+              {{ nbrLastMonthSession }} Séances ce mois
+          </div>
+          <div class="ml-5 mt-1 student_start_date">
+            Commencé {{ student.startsAt }}
+          </div>
+          <div class="ml-5 mt-2 mb-2 student_non_payed">
+              {{ nonPayedMonths }} mois non payé
+          </div>
+        </div>
+      </div>
+  </div>

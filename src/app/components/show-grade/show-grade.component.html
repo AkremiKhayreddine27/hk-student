@@ -1,0 +1,28 @@
+<ng-template #loading>
+        <div class="loading" *ngIf="showLoading">
+          <div class="loading-spinner">
+              <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> loading
+          </div>
+        </div>
+        <div class="loading error" *ngIf="!showLoading">
+            <i class="fa fa-warning fa-4x"></i>
+            <span>Vérifier votre connexion réseau et/ou réssayer</span> 
+        </div>
+    </ng-template>
+<div *ngIf="students; else loading;" class="grades">
+    <a [routerLink]="'/grades/'+gradeId+'/students/create'" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+    </a>
+    <div class="card">
+        <div class="card-header" *ngIf="grade && students">
+            <div class="row">
+                <div class="grade_name">
+                    {{ grade.name }} ( {{ students.length }} élèves )
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+                    <app-student *ngFor="let student of students" [student]="student"></app-student>
+        </div>
+    </div>
+</div>

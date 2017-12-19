@@ -1,0 +1,61 @@
+.grades{
+    position: relative;
+    .card-header{
+        color: #eb4839;
+        border: none;
+        margin: 0;
+    }
+    .card-body{
+        padding: 0;
+        background-color: white;
+        .grade_name{
+            padding: 10px;
+            background-color: #414141;
+            color: white;
+        }
+        .student_name{
+            padding: 10px;
+            color: #575962;
+        }
+        .student_name:hover{
+            background-color: #dddddd;
+        }
+    }
+}
+.is-present {
+    color: #0B8043;
+}
+.is-absent {
+    color: #D50000;
+}
+.saving{
+    position: fixed;
+    z-index: 1000;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .loading-spinner{
+        background-color: white;
+        padding: 10px;
+        box-shadow: 2px 2px 2px 2px rgba(100,100,100,.2);
+        display: flex;
+        align-items: center;
+    }
+}
+
+.btn{
+    z-index: 1000;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+}

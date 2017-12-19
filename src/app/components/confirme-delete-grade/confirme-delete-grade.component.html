@@ -1,0 +1,9 @@
+<div class="card">
+  <div MatDialogTitle class="card-header">
+    <p>Voulez vous vraiment supprimer le groupe {{ data.grade.name }} ?</p>
+  </div>
+  <div MatDialogActions class="card-body">
+    <button class="btn btn-success mr-2"  [mat-dialog-close]="delete" tabindex="2">Ok</button>
+    <button class="btn btn-danger" (click)="onNoClick()" tabindex="-1">Non</button>
+  </div>
+</div>

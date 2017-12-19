@@ -1,0 +1,40 @@
+<div class="cal-month-view">
+  <app-month-view-header
+    [days]="columnHeaders"
+    [locale]="locale"
+    [customTemplate]="headerTemplate">
+  </app-month-view-header>
+  <div class="cal-days">
+    <div *ngFor="let rowIndex of view.rowOffsets">
+      <div class="cal-cell-row">
+        <app-month-cell
+          *ngFor="let day of view.days | slice : rowIndex : rowIndex + (view.totalDaysVisibleInWeek)"
+          [class.cal-drag-over]="day.dragOver"
+          [ngClass]="day?.cssClass"
+          [day]="day"
+          [openDay]="openDay"
+          [locale]="locale"
+          [tooltipPlacement]="tooltipPlacement"
+          [tooltipAppendToBody]="tooltipAppendToBody"
+          [tooltipTemplate]="tooltipTemplate"
+          [customTemplate]="cellTemplate"
+          (click)="handleDayClick($event, day)"
+          (highlightDay)="toggleDayHighlight($event.event, true)"
+          (unhighlightDay)="toggleDayHighlight($event.event, false)"
+          mwlDroppable
+          (dragEnter)="day.dragOver = true"
+          (dragLeave)="day.dragOver = false"
+          (drop)="day.dragOver = false; eventDropped(day, $event.dropData.event)"
+          (eventClicked)="eventClicked.emit({event: $event.event})">
+        </app-month-cell>
+      </div>
+      <app-open-day-events
+        [isOpen]="openRowIndex === rowIndex"
+        [events]="openDay?.events"
+        [customTemplate]="openDayEventsTemplate"
+        [eventTitleTemplate]="eventTitleTemplate"
+        (eventClicked)="eventClicked.emit({event: $event.event})">
+      </app-open-day-events>
+    </div>
+  </div>
+</div>

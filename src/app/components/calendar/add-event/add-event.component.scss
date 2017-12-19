@@ -1,0 +1,14 @@
+.form-group{
+    display: flex;
+    align-items: center;
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+.flex-1{
+    flex: 1;
+}

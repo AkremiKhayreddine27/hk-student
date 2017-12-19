@@ -1,0 +1,86 @@
+.main{
+    position: relative;
+    height: inherit;
+    min-height: 100vh;
+}
+@import url('https://fonts.googleapis.com/css?family=Allura');
+.navbar{
+    background-color: #2C2E3E !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+    .navbar-brand{
+        flex: 1;
+        font-size: 28px !important;
+        font-family: 'Allura', cursive;
+        display: flex;
+        justify-content: center;
+    }
+    .btn{
+        margin: 0 !important;
+        outline: none;
+        background-color: darken(#2C2E3E , 5%) !important;
+    }
+}
+.sidebar{
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1000;
+    min-width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    box-shadow: 2px 1px 5px 1px rgba(128, 128, 128, 0.28);
+    .list-group{
+        border: none;
+        background-color: #fff;
+        .list-group-item{
+            background-color: #fff;
+            border-top: 1px solid darken($color: (#f5f5f5), $amount: 5%) !important;
+            border-left: none;
+            border-right: none;
+            border-bottom: 1px solid darken($color: (#f5f5f5), $amount: 5%) !important;
+            color: #666;
+            display: flex;
+            align-items: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 14px;
+            outline: none;
+            .fa{
+                color: #666;
+                margin-right: 15px;
+                font-size: 18px;
+            }
+        }
+        .list-group-item:hover{
+            background-color: #716ACA;
+            color: white;
+            cursor: pointer;
+            outline: none;
+            .fa{
+                color: white;
+                margin-right: 10px;
+                font-size: 18px;
+            }
+        }
+        
+    }
+}
+.sidebar-top{
+    display: flex;
+    padding: 7px;
+    align-items: center;
+    justify-content: center;
+    .navbar-brand{
+        flex: 1;
+        margin-left: 15px;
+        text-decoration: none;
+        color: #716ACA;
+        outline: none;
+        font-size: 38px !important;
+        font-family: 'Allura', cursive;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

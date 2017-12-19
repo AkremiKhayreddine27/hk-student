@@ -1,0 +1,40 @@
+<div class="p-4">
+    <div class="saving" *ngIf="isSaving">
+        <div class="loading-spinner">
+            <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> Enregistrement
+        </div>
+    </div>
+    <h4 class="title">Ajouter à votre emploie</h4>
+    <div class="form-group row mt-4">
+        <span class="form-control-label col-6">Classes</span>
+        <mat-form-field class="col-6">
+            <mat-select placeholder="Choisir un ou plusieurs classes" [formControl]="grades" multiple>
+              <mat-option *ngFor="let grade of gradeList" [value]="grade">{{grade.name}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="grades.hasError('required')">Il Faut Choisir au moin un classe</mat-error>
+        </mat-form-field>
+    </div>
+    <div class="form-group row">
+        <span class="form-control-label col-6">Jour</span>
+        <mat-form-field class="col-6">
+            <mat-select [formControl]="selectedDay" placeholder="Choisir Jour">
+              <mat-option *ngFor="let day of days" [value]="day.value">
+                {{ day.viewValue }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="selectedDay.hasError('required')">Il Faut Choisir au moin un classe</mat-error>            
+        </mat-form-field>
+    </div>
+    <div class="form-group row">
+        <span class="form-control-label col-6">Temps de début</span>
+        <ngb-timepicker class="col-6" [(ngModel)]="startTime"></ngb-timepicker>
+    </div>
+    <div class="form-group row">
+        <span class="form-control-label col-6">Temps de fin</span>
+        <ngb-timepicker class="col-6" [(ngModel)]="endTime"></ngb-timepicker>
+    </div>
+    <div class="form-group text-right">
+        <a href="#" routerLink="" class="btn btn-danger mr-3"><i class="fa fa-arrow-left"></i></a>
+        <button [disabled]="isDisabled" (click)="addEvent()" type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+    </div>
+</div>    

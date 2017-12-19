@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.container-fluid{
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
+    b {
+        font-size: 12px !important; 
+    }
+}
+/deep/ .mat-dialog-container {
+    padding: 0 !important;
+}

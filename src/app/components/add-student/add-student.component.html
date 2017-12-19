@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+    <div class="saving" *ngIf="isSaving">
+        <div class="loading-spinner">
+            <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> Enregistrement
+        </div>
+    </div>
+
+    <form (ngSubmit)="addStudent(studentForm)" #studentForm="ngForm" class="p-4" novalidate>
+
+        <h4 class="title">Ajouter un élève</h4>
+
+        <div class="mb-3">
+            <input 
+            [(ngModel)]="firstname"
+            name="firstname"
+            #firstName="ngModel"
+            minlength="2"
+            required
+            [class.is-invalid]="!firstName.valid && !firstName.pristine"
+            [class.is-valid]="firstName.valid"
+            class="form-control" 
+            type="text" 
+            placeholder="Nom"/>
+            <div class="invalid-feedback" [hidden]="firstName.valid || firstName.pristine">Le nom est obligatoire</div>
+        </div>  
+
+
+        <div class="mb-3">
+                <input 
+                [(ngModel)]="lastname"
+                name="lastname"
+                #lastName="ngModel"
+                [class.is-invalid]="!lastName.valid && !lastName.pristine"
+                [class.is-valid]="lastName.valid"
+                minlength="2"
+                required
+                class="form-control" 
+                type="text" 
+                placeholder="Prénom"
+                />
+                <div class="invalid-feedback" [hidden]="lastName.valid || lastName.pristine">Le prénom est obligatoire</div>                
+        </div> 
+
+        <mat-form-field>
+                <input 
+                [(ngModel)]="startsAt" 
+                name="startsAt"
+                #startDate="ngModel"
+                minlength="2"
+                required 
+                matInput [matDatepicker]="picker" 
+                placeholder="Choose a date" 
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #picker></mat-datepicker>
+        </mat-form-field>
+        
+
+        <div class="form-group text-right">
+            <a href="#" routerLink="/grades/1" class="btn btn-danger"><i class="fa fa-arrow-left"></i></a>
+            <button [disabled]="!studentForm.form.valid" type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+        </div>
+    </form>
+
+</div>
+

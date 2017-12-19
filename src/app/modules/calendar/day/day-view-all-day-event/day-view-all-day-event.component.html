@@ -1,0 +1,24 @@
+<ng-template
+#defaultTemplate
+let-event="event"
+let-eventClicked="eventClicked">
+<div
+  class="cal-all-day-event"
+  [style.backgroundColor]="event.color.secondary"
+  [style.borderColor]="event.color.primary">
+  <mwl-calendar-event-actions [event]="event"></mwl-calendar-event-actions>
+  <mwl-calendar-event-title
+    [event]="event"
+    [customTemplate]="eventTitleTemplate"
+    view="day"
+    (mwlClick)="eventClicked.emit()">
+  </mwl-calendar-event-title>
+</div>
+</ng-template>
+<ng-template
+[ngTemplateOutlet]="customTemplate || defaultTemplate"
+[ngTemplateOutletContext]="{
+  event: event,
+  eventClicked: eventClicked
+}">
+</ng-template>

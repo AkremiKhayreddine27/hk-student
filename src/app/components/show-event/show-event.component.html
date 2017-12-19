@@ -1,0 +1,35 @@
+
+    <ng-template #loading>
+            <div class="loading" *ngIf="showLoading">
+            <div class="loading-spinner">
+                <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> loading
+            </div>
+            </div>
+            <div class="loading error" *ngIf="!showLoading">
+                <i class="fa fa-warning fa-4x"></i>
+                <span>Vérifier votre connexion réseau et/ou réssayer</span> 
+            </div>
+    </ng-template>
+<div *ngIf="presentStudents; else loading;" class="grades">
+    <div class="saving" *ngIf="isSaving">
+        <div class="loading-spinner">
+             <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> Enregistrement
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+                <div class="container-fluid" *ngFor="let presentStudent of presentStudents">
+                <div class="student_name row">
+                    <div class="col-9">{{ presentStudent.student.firstName }} {{ presentStudent.student.lastName }}</div>   
+                    <div class="col-3">
+                        <span class="is-present" *ngIf="presentStudent.present && !canUpdate">présent</span>
+                        <span class="is-absent" *ngIf="!presentStudent.present && !canUpdate">absent</span>
+                        <mat-checkbox *ngIf="canUpdate" (change)="updatePresentStudents(presentStudent.student.id,$event)" [checked]="presentStudent.present" [value]="presentStudent.student.id"></mat-checkbox>      
+                    </div>    
+                </div>
+                </div>
+        </div>
+    </div>
+    <button *ngIf="!canUpdate" [disabled]="isDisabled" (click)="update()" class="btn btn-primary mt-3"><i class="fa fa-edit"></i></button>        
+    <button *ngIf="canUpdate" [disabled]="isDisabled" (click)="save()" class="btn btn-success mt-3"><i class="fa fa-save"></i></button>    
+</div>

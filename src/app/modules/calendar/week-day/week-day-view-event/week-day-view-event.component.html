@@ -1,0 +1,23 @@
+<ng-template
+#defaultTemplate
+let-weekEvent="weekEvent"
+let-eventClicked="eventClicked">
+<div
+  class="cal-event"
+  [style.backgroundColor]="weekEvent.event.color.primary">
+  <mwl-calendar-event-actions [event]="weekEvent.event"></mwl-calendar-event-actions>
+  <mwl-calendar-event-title
+    [event]="weekEvent.event"
+    [customTemplate]="eventTitleTemplate"
+    view="week"
+    (mwlClick)="eventClicked.emit()">
+  </mwl-calendar-event-title>
+</div>
+</ng-template>
+<ng-template
+[ngTemplateOutlet]="customTemplate || defaultTemplate"
+[ngTemplateOutletContext]="{
+  weekEvent: weekEvent,
+  eventClicked: eventClicked
+}">
+</ng-template>

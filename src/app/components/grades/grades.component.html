@@ -1,0 +1,25 @@
+<ng-template #loading>
+        <div class="loading" *ngIf="showLoading">
+          <div class="loading-spinner">
+              <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> loading
+          </div>
+        </div>
+        <div class="loading error" *ngIf="!showLoading">
+            <i class="fa fa-warning fa-4x"></i>
+            <span>Vérifier votre connexion réseau et/ou réssayer</span> 
+        </div>
+    </ng-template>
+<div *ngIf="grades; else loading;" class="grades">
+    <a routerLink="/grades/create" class="btn btn-success">
+      <i class="fa fa-plus"></i>
+    </a>
+    <div class="card">
+        <div class="card-header" *ngIf="grades">
+            Vous avez {{ grades.length }} groups
+        </div>
+        <div class="card-body">
+            <app-grade *ngFor="let grade of grades" [grade]="grade"></app-grade>
+        </div>
+      </div>
+</div>
+  

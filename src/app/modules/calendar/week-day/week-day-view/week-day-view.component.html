@@ -1,0 +1,42 @@
+<div class="cal-week-view" #weekViewContainer>
+    <app-week-day-view-header
+      [days]="days">
+    </app-week-day-view-header>
+    <div #eventRowContainer class="cal-events-row">
+      <div
+        *ngFor="let weekEvent of view?.events"
+        #event
+        class="cal-event-container"
+        [class.cal-starts-within-week]="!weekEvent.startsBeforeWeek"
+        [class.cal-ends-within-week]="!weekEvent.endsAfterWeek"
+        [style.width]="(((100 / days.length) * weekEvent.span)) + '%'"
+        [style.marginLeft]="(((100 / days.length) * weekEvent.offset)) + '%'"
+        [style.marginTop.px]="weekEvent.top" 
+        [style.height.px]="weekEvent.height -6"
+        >
+        <app-week-day-view-event
+          [weekEvent]="weekEvent"
+          [customTemplate]="eventTemplate"
+          [eventTitleTemplate]="eventTitleTemplate"
+          (eventClicked)="eventClicked.emit({event: weekEvent.event})">
+        </app-week-day-view-event>
+      </div>
+    </div>
+    <div class="cal-hour" *ngFor="let hour of hours">
+        <app-week-day-view-hour-segment
+          *ngFor="let segment of hour.segments"
+          [style.height.px]="hourSegmentHeight"
+          [days]="days"
+          [hour]="hour"
+          [segment]="segment"
+          [segmentHeight]="hourSegmentHeight"
+          [locale]="locale"
+          [customTemplate]="hourSegmentTemplate"
+          [class.cal-drag-over]="segment.dragOver"
+          mwlDroppable
+          (dragEnter)="segment.dragOver = true"
+          (dragLeave)="segment.dragOver = false"
+          (drop)="segment.dragOver = false; eventDropped($event, segment)">
+        </app-week-day-view-hour-segment>
+      </div>
+  </div>

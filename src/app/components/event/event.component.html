@@ -1,0 +1,17 @@
+<div class="event" [routerLink]="'events/'+event.id">
+  <div class="row">
+    <div class="col-4 pl-2">
+      <div class="event_time">
+        <div class="event_time_start">{{ event.startTime }} AM</div>
+        <div class="event_time_end">{{ event.endTime }} AM</div>
+      </div>
+    </div>
+    <div class="event_body col-8">
+      <div class="event_title">
+        <ul>
+          <li *ngFor="let grade of grades">{{ grade.name }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

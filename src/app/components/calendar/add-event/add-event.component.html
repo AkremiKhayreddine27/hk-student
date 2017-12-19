@@ -1,0 +1,56 @@
+<div class="p-4">
+    <div class="saving" *ngIf="isSaving">
+        <div class="loading-spinner">
+            <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> Enregistrement
+        </div>
+    </div>
+    <form (ngSubmit)="addEvent(form)" [formGroup]="form" class="p-4" novalidate>
+
+        <h4 class="title">Ajouter un évennement</h4>
+
+        <div class="mb-3">
+            <input 
+            formControlName="title"
+            [class.is-invalid]="!form.get('title').valid && form.get('title').touched"
+            [class.is-valid]="form.get('title').valid"
+            class="form-control" 
+            type="text" 
+            placeholder="Titre"/>
+            <div class="invalid-feedback" [hidden]="form.get('title').valid && form.get('title').touched">Le titre est obligatoire</div>        
+        </div>
+
+        <div class="form-group row">
+            <mat-form-field class="col-md-2">
+                <input 
+                formControlName="startDate"  
+                name="startDate"
+                matInput [matDatepicker]="start" 
+                placeholder="Choose a date" 
+                />
+                <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #start></mat-datepicker>
+            </mat-form-field>
+            <div class="col-md-2">
+                 <ngb-timepicker formControlName="startTime" name="endTime"></ngb-timepicker>
+            </div>
+            <div class="col-md-4 flex">
+                Jusqu'à
+            </div>
+            <mat-form-field class="col-md-2">
+                <input 
+                formControlName="endDate"  
+                name="endDate"
+                matInput [matDatepicker]="picker" 
+                placeholder="Choose a date" 
+                />
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker touchUi="true" #picker></mat-datepicker>
+            </mat-form-field>
+            <ngb-timepicker class="col-md-2" formControlName="endTime" name="endTime"></ngb-timepicker>
+        </div>
+
+        <div class="form-group text-right">
+            <button [disabled]="!form.valid" type="submit" class="btn btn-fixed-bottom btn-info"><i class="fa fa-save"></i></button>
+        </div>
+    </form>
+</div>    

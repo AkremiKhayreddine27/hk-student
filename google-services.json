@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "289447766793",
+    "firebase_url": "https://hk-student.firebaseio.com",
+    "project_id": "hk-student",
+    "storage_bucket": "hk-student.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289447766793:android:ab41064988309296",
+        "android_client_info": {
+          "package_name": "com.hk.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289447766793-ak0piqo76qkl6aj229n4kui9o9cbb83k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDroQ5ER9klqXgT_J1LTtl_C5bk7R7WOVk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

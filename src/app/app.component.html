@@ -1,0 +1,39 @@
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')">
+        <mat-sidenav class="sidebar" #sidenav (keydown.escape)="close('escape')" disableClose>
+                <div class="sidebar-top">
+                    <a class="navbar-brand" href="#">HK</a>
+                  </div>
+                  <ul class="list-group">
+                      <li (click)="close('escape')" class="list-group-item" routerLink="/">
+                        <i class="fa fa-home"></i>Aujourd'hui
+                      </li>
+                      <li (click)="close('escape')" class="list-group-item" routerLink="/calendar">
+                        <i class="fa fa-calendar"></i>Calendrier
+                        <span class="badge badge-success p-1 ml-5">arrive bientôt</span>
+                      </li>
+                      <li (click)="close('escape')" class="list-group-item" routerLink="/grades">
+                        <i class="fa fa-users"></i>Gestion des groupes
+                      </li>
+                      <li class="list-group-item">
+                        <i class="fa fa-cogs"></i>Paramètres
+                        <span class="badge badge-success p-1 ml-5">arrive bientôt</span>
+                      </li>
+                  </ul>
+            </mat-sidenav>
+    <mat-sidenav-content>
+    <!-- navbar -->
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <button class="btn btn-dark mr-0" [routerLink]="previousUrl"><i class="fa fa-arrow-left"></i></button>
+            <a class="navbar-brand mr-0" href="#">HK</a>
+            <button (click)="sidenav.open()" class="btn btn-dark" id="toggle" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    <!-- end navbar -->
+        <div class="main">
+                <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+

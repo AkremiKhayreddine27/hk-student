@@ -1,0 +1,15 @@
+<div class="grade">
+    <div class="card">
+      <div class="grade_body card_body">
+        <div class="grade_title">
+          {{ grade.name }} <span class="grade_students_length" *ngIf="students">( {{ students.length }} élèves )</span>
+        </div>
+      </div>
+      <div class="card_body grade_actions p-3">
+          <button class="btn mr-1 btn-success" [routerLink]="'/grades/'+grade.id"><i class="fa fa-users"></i></button>
+          <button [routerLink]="'/grades/' +  grade.id + '/edit'" class="btn mr-1 btn-primary "><i class="fa fa-edit"></i></button>
+          <button (click)="confirmDelete()" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+     </div>
+    </div>
+</div>
+  

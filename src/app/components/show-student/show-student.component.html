@@ -1,0 +1,30 @@
+<ng-template #loading>
+        <div class="loading" *ngIf="showLoading">
+          <div class="loading-spinner">
+              <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> loading
+          </div>
+        </div>
+        <div class="loading error" *ngIf="!showLoading">
+            <i class="fa fa-warning fa-4x"></i>
+            <span>Vérifier votre connexion réseau et/ou réssayer</span> 
+        </div>
+    </ng-template>
+<div *ngIf="months; else loading;" class="card">
+    <div class="card-header">{{ student.firstName }} {{ student.lastName }}</div>
+    <ul class="list-group list-group-flush">
+        <li *ngFor="let month of months" class="list-group-item">
+            <div class="row">
+                <div class="col-4">Mois {{ month.id }}</div>
+                <div class="col-8 month_date">{{ month.startDate }}
+                        <span *ngIf="month.endDate">
+                                 jusqu'a {{ month.endDate }}
+                        </span>
+                </div>
+            </div>
+            <div class="month_payed mt-3 text-right">
+                 <mat-slide-toggle (change)="updateMonth(month.id,$event)" [checked]="month.payed">payée</mat-slide-toggle>
+            </div>    
+        </li>
+    </ul>
+  </div>
+  

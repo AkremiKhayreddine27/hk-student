@@ -1,0 +1,13 @@
+.cal-event {
+    padding: 5px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 2px !important;
+  } 
+.cal-event a.cal-event-title{
+  color: white !important;
+}

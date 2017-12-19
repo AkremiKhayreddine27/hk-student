@@ -1,0 +1,26 @@
+<form (ngSubmit)="addGrade(gradeForm)" #gradeForm="ngForm" class="p-4">
+        <div class="saving" *ngIf="isSaving">
+                <div class="loading-spinner">
+                    <i class="fa fa-spin fa-spinner fa-2x mr-2"></i> Enregistrement
+                </div>
+            </div>
+    <h4 class="title">Ajouter un classe</h4>
+    <div class="form-group">
+        <input 
+        [(ngModel)]="name" 
+        name="name" 
+        #gradeName="ngModel"
+        minlength="2"
+        required
+        [class.is-invalid]="!gradeName.valid && !gradeName.pristine"
+        [class.is-valid]="gradeName.valid"
+        class="form-control" 
+        type="text" 
+        placeholder="Nom du groupe"/>
+        <div class="invalid-feedback" [hidden]="gradeName.valid || gradeName.pristine">Le nom du groupe est obligatoire</div>        
+    </div>  
+    <div class="form-group text-right">
+        <a href="#" routerLink="/grades" class="btn btn-danger"><i class="fa fa-arrow-left"></i></a>
+        <button [disabled]="!gradeForm.form.valid" type="submit" class="btn btn-info"><i class="fa fa-save"></i></button>
+    </div>
+</form>

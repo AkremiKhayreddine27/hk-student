@@ -13,7 +13,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { CalendarModule } from './modules/calendar/calendar.module';
+import { CalendarModule } from 'ngx-calendar';
 
 
 import { MatMomentDateModule } from '@angular/material-moment-adapter';

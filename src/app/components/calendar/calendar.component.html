@@ -1,43 +1,16 @@
 <div class="container-fluid pt-3 pb-3">
-  <ng-template #loading>
-      <div class="loading">
-        <i class="fa fa-spin fa-spinner fa-2x"></i>
-      </div>
-  </ng-template>
   <div class="row">
     <div class="col-12">
-        <div *ngIf="events$ | async; else loading; let events">
-            <div [ngSwitch]="view">
-              <app-calendar-week-day-view
-              *ngSwitchCase="'weekDay'"
-              [events]="events"
-              [viewDate]="viewDate"
-              (eventClicked)="eventClicked($event.event)"
-              [refresh]="refresh"
-              >
-              </app-calendar-week-day-view>
-              <app-calendar-month-view
-              *ngSwitchCase="'month'"
-              [viewDate]="viewDate"
-              [events]="events"
-              [activeDayIsOpen]="activeDayIsOpen"
-              (dayClicked)="dayClicked($event.day)"
-              (eventClicked)="eventClicked($event.event)">
-              </app-calendar-month-view>
-              <app-calendar-week-view
-              *ngSwitchCase="'week'"
-              [viewDate]="viewDate"
-              [events]="events"
-              (eventClicked)="eventClicked($event.event)">
-            </app-calendar-week-view>
-          </div>
-        </div>
-      </div>
+      <calendar-week-view [calendars]="calendars" [viewDate]="viewDate" (eventClicked)="eventClicked($event.event)"
+         [refresh]="refresh">
+      </calendar-week-view>
+    </div>
   </div>
   <div class="row">
     <div class="col-12">
-        <button routerLink="/calendar/events/create" class="btn btn-danger btn-fixed-bottom"><i class="fa fa-plus"></i></button>        
+      <button routerLink="/calendar/events/create" class="btn btn-danger btn-fixed-bottom">
+        <i class="fa fa-plus"></i>
+      </button>
     </div>
   </div>
 </div>
-

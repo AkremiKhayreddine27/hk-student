@@ -13,7 +13,7 @@ export class EventService {
   constructor(public http: Http) { }
 
   all() {
-    return this.http.get(this.url).map(response => response.json()).toPromise();
+    return this.http.get(this.url).map(response => response.json()._embedded.events).toPromise();
   }
 
   find(id) {
